@@ -5,4 +5,5 @@ Browser-Dashboard is a startpage that can show weather for any location in the U
 
 How To Use:
 fork and download the repository. you can run the entire program by clicking and selecting the html file, you can also set the html file as your home page in your browser through settings.
-![image](https://github.com/user-attachments/assets/e0d3704e-22cb-4358-bb2e-2addd24cf7eb)
+![image](https://github.com/user-attachments/assets/2705da55-3002-4b58-9c8b-d8b9af40fc9f)
+
