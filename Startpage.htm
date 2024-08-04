@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<html>
+  
+<head>
+<meta charset="utf-8" />
+<script src="startpage.js"></script> 
+<link rel="stylesheet" type="text/css" href="startpage.css" media="screen" />
+<title>browser-dashboard</title>
+</head>
+
+<body>
+<div id="innerpage"> 
+
+<h1>[browser-dashboard]</h1>
+
+<h2>Weather</h2>
+
+
+
+<div id="bar">
+<input type="text" placeholder="Enter Location..." id="link_id">
+<input type="button" id="link_str" value="Search" onClick="SearchBox()">
+</br> 
+</div>
+
+</br>
+<p id="location"></p>
+ </br> 
+
+ <div id="main_temp">
+ <img src="" id="main_img" width="50" height="50">
+  <div id="temp">
+    <p></p>
+    </br>
+    </div> 
+  </div>
+
+  </br></br></br>
+
+  <div id="scrollmenu">
+  </div>
+  
+ <h3>Links</h3>
+ <table id="link-table">
+  <tr>
+    <th>General</th>
+    <th>Work</th>
+    <th>Practice</th>
+  </tr>
+  <tr>
+    <td> <a href="https://www.youtube.com/feed/subscriptions" target="_blank">Youtube</a></td>
+    <td><a href="https://mail.google.com/mail" target="_blank">Email</a></td>
+   <td> <a href="https://arithmetic.zetamac.com/" target="_blank">Math</a></td>
+  </tr>
+  <tr>
+    <td><a href="https://news.ycombinator.com/" target="_blank">Hacker News </a></td>
+    <td><a href="https://pomofocus.io/" target="_blank">Timer</a></td>
+    <td> <a href="https://play.typeracer.com/" target="_blank">Typing</a></td>
+  </tr>
+  <tr>
+  <td><a href="https://old.reddit.com/" target="_blank">Reddit</a></td>
+  <td> <a href="https://github.com/login" target="_blank">Github</a></td>
+  <td> <a href="https://leetcode.com/problemset/" target="_blank">Leetcode</a></td>
+</tr>
+</table> 
+ 
+ <h4>News </h4>
+
+<div id='newsdiv'>
+<p>Enter name of Subreddit:</p>
+ <input type="text" placeholder="Subreddit Name..." id="redsearch">
+ <input type="button" id="link_str" value="Search" onClick="getlinks()">
+  </br> </br> </br>
+ <input type="button" id="Techbutton" value="Tech News" onClick="getlinks()">
+ <input type="button" id="reloadbutton" value="Reset" onClick="reloadbutton()">
+
+<div id="links">
+</div>
+</div>
+
+
+</div>
+</body>
+<html>
+
+
