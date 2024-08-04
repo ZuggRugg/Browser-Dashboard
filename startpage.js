@@ -1,4 +1,4 @@
-
+getTime();
 fetchData(97, 78);
 
 async function fetchData(X, Y) {
@@ -36,12 +36,14 @@ function determineIcon(jsondata1, t) {
     var iconlink = jsondata1.properties.periods[t].icon;
 
     var iconN = iconlink.slice(35, 42);
+    if(t == 0){determineBackground(iconN);}
     console.log(iconN, iconlink); 
 
-    if(iconlink.slice(35, 40) == "night") {return "img/clear_night.png";}
-    else if((iconN == "day/skc") || (iconN == "day/few")) {return "img/Sunny.png";}
+    if(iconN == "night/f") {return "img/clear_night.png";}
+    else if((iconN == "day/skc") || (iconN == "day/few") || (iconN == "day/hot")) {return "img/Sunny.png";}
            else if((iconN == "day/sct") || (iconN == "day/bkn")) {return "img/cloudy_weather.png";}
-              else if((iconN == "day/rain") || (iconN == "day/rain_showers") || (iconN == "rain_showers_hi")) {return "img/rainy.png"}
+           else if(iconN == "day/rai") {return "img/rainy.png"}
+    else if((iconN == "night/s") || (iconN == "night/b")) {return "img/cloudy_night.png";}
 }
 
 
@@ -157,7 +159,24 @@ function scrollmenu(jsondata1, jsondata2){
     }
 }
 
+function determineBackground(code) {
+    if((code == "day/skd") || (code == "day/sct") || (code == "day/hot") || (code == "day/few"))
+    {document.body.style.backgroundImage = 'linear-gradient(224deg, #EBFF00FF 0.5%, #EBFF00FF 1%, #71C4FFFF 40%);';}
+    else if(code == "day/rai") {document.body.style.backgroundImage = 'linear-gradient(224deg, #9370db 0.5%, #9370db 1%, #71C4FFFF 40%);';}
+    else if((code == "night/f") || (code == "night/s")) {document.body.style.backgroundImage = 'linear-gradient(224deg, #9370db 0.5%, #9370db 1%, #71C4FFFF 40%);';}
+}
 
-function gotoSubreddit(link) {
-    return link;
+function getTime() {
+    var times = document.getElementById("TIME");
+
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+
+    today = mm + '/' + dd + '/' + yyyy;
+
+    console.log(today);
+
+    times.innerText = today; 
 }
