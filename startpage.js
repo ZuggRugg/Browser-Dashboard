@@ -9,11 +9,13 @@ async function fetchData(X, Y) {
  
         const data1 = await response1.json();
 	const data2 = await response2.json();
-	if(X == 97 && Y == 78) {document.getElementById('location').innerHTML = "Edwardsville, Illinois";}
+	if(X == 97 && Y == 78)
+ {document.getElementById('location').innerHTML = "Edwardsville, Illinois"; const container = document.getElementById('scrollmenu');
+  container.textContent = '';}
        
 	var jsondata1 = data1; 
         var jsondata2 = data2;
-	console.log(jsondata1, jsondata2); 
+//	console.log(jsondata1, jsondata2); 
 	getWeather(jsondata1,jsondata2);
     }
     catch(error){console.error(error);}
@@ -36,16 +38,18 @@ function determineIcon(jsondata1, t) {
     var iconlink = jsondata1.properties.periods[t].icon;
 
     var iconN = iconlink.slice(35, 42);
-    if(t == 0){determineBackground(iconN);}
     console.log(iconN, iconlink); 
 
-    if(iconN == "night/f") {return "img/clear_night.png";}
-    else if((iconN == "day/skc") || (iconN == "day/few") || (iconN == "day/hot")) {return "img/Sunny.png";}
-           else if((iconN == "day/sct") || (iconN == "day/bkn")) {return "img/cloudy_weather.png";}
-           else if(iconN == "day/rai") {return "img/rainy.png"}
-    else if((iconN == "night/s") || (iconN == "night/b")) {return "img/cloudy_night.png";}
+    if(iconN == "night/f") {if(t==0){determineBackground("night");}return "img/clear_night.png";}
+    else if((iconN == "day/skc") || (iconN == "day/few") || (iconN == "day/hot")) {if(t==0){determineBackground("day");} return "img/Sunny.png";}
+    else if((iconN == "day/sct") || (iconN == "day/bkn") || (iconN == "day/ovc")) {if(t==0){determineBackground("cloud");} return "img/cloudy_weather.png";}
+    else if(iconN == "day/rai") {if(t == 0){determineBackground("cloud");} return "img/rainy.png";} 
+    else if((iconN == "night/s") || (iconN == "night/b")) {if(t == 0){determineBackground("night");} return "img/cloudy_night.png";}
+    else if(iconN == "day/tsr") {return "img/thunderstorm.png";}
+    else if(iconN == "night/t") {return "img/nThunder.png"}
+    else if((iconN == "night/b") || (iconN == "night/o")) {if(t==0){determineBackground("night");} return "img/day_windy.png"}
+    else if(iconN == "night/r") {if(t==0){determineBackground("night");} return "img/rain_night.png";}
 }
-
 
 async function SearchBox() {
     document.getElementById("scrollmenu").innerHTML = "";
@@ -63,7 +67,6 @@ async function SearchBox() {
 	 
 	} catch(error){console.log(error);}
 
-    console.log(location);
     UpdateLocation(lat, lon);
 }
 
@@ -78,17 +81,17 @@ const gridpoints = "https://api.weather.gov/points/" + lat + "," + lon;
         const Xcoord = griddata.properties.gridX;
         const Ycoord = griddata.properties.gridY;
 
-	console.log(griddata);
+//	console.log(griddata);
 	fetchData(Xcoord, Ycoord);
     }
     catch(error){console.error(error);}
 }
 
 
-async function getlinks() {    
+async function getlinks(passed) {    
     var name = document.getElementById("redsearch").value;
-    if(name == "") {var url = ["https://www.reddit.com/r/javascript/hot.json", "https://www.reddit.com/r/tech/hot.json"];}
- 
+    if(passed == "Tech") {var url = ["https://www.reddit.com/r/tech/hot.json", "https://www.reddit.com/r/programming/hot.json"];}
+    else if(passed == "news") {var url = ["https://old.reddit.com/r/news/hot.json","https://old.reddit.com/r/worldnews/hot.json" ];}
    else {var link = "https://www.reddit.com/r/" + name + "/hot.json"; var url = [link];}
 
     try {
@@ -96,7 +99,7 @@ async function getlinks() {
 	    const linkres = await fetch(url[i]);
 	    if(!linkres.ok) {throw new Error("could not fetch response");}
 	    const linkdata = await linkres.json();
-	    console.log(linkdata);
+//	    console.log(linkdata);
 	    appendlinks(linkdata);
 	}
     }
@@ -160,11 +163,11 @@ function scrollmenu(jsondata1, jsondata2){
 }
 
 function determineBackground(code) {
-    if((code == "day/skd") || (code == "day/sct") || (code == "day/hot") || (code == "day/few"))
-    {document.body.style.backgroundImage = 'linear-gradient(224deg, #EBFF00FF 0.5%, #EBFF00FF 1%, #71C4FFFF 40%);';}
-    else if(code == "day/rai") {document.body.style.backgroundImage = 'linear-gradient(224deg, #9370db 0.5%, #9370db 1%, #71C4FFFF 40%);';}
-    else if((code == "night/f") || (code == "night/s")) {document.body.style.backgroundImage = 'linear-gradient(224deg, #9370db 0.5%, #9370db 1%, #71C4FFFF 40%);';}
+    if(code == "day") {document.body.style.backgroundImage = "linear-gradient(224deg, #EBFF00FF 0.5%, #EBFF00FF 1%, #71C4FFFF 40%)"}
+    else if(code == "night") {document.body.style.backgroundImage = "linear-gradient(224deg, #663399 1%, #663399 1%, #006db0 80%)"}
+    else if(code == "cloud") {document.body.style.backgroundImage = "linear-gradient(224deg, #ffffff 2%, #ffffff 5%, #99ccff 40%)"}
 }
+
 
 function getTime() {
     var times = document.getElementById("TIME");
@@ -176,7 +179,6 @@ function getTime() {
 
     today = mm + '/' + dd + '/' + yyyy;
 
-    console.log(today);
-
     times.innerText = today; 
 }
+
