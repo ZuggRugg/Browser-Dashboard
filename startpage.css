@@ -1,16 +1,15 @@
   body  {
   font-family: Monospace;
-  font-size: 17px;
+  font-size: 16px;
   letter-spacing: 0.5px;
   color: white;  
   max-width: 880px;
   margin: 0 auto; 
   margin-top: 20px;
-       background-size: 100% 150%;
-       background-position: 0px 0px;
-       background-image: linear-gradient(224deg, #EBFF00FF 0.5%, #EBFF00FF 1%, #71C4FFFF 40%);
-       background-repeat: no-repeat;
-  }
+  background-size: 100% 150%;
+  background-position: 0px 0px;
+  background-image: linear-gradient(224deg, #EBFF00FF 0.5%, #EBFF00FF 1%, #71C4FFFF 40%);
+  background-repeat: no-repeat;}
   
   #innerpage {background-color: black;
 	      opacity: 0.85;
@@ -26,7 +25,7 @@
   
   #bar {margin-left: 305px; text-align: center;}
 
-  #link_str {float: left;}
+  #link_str {float: left; background: url('img/search.jpg'); no-repeat;}
 
   #temp {margin-left: 10px;}
 
@@ -36,20 +35,16 @@
 		 float: left;
 		 margin-left: 10px;
 		 margin-top: -6px;}
-
-  #day { margin: 10px;
-	 font-size: 17px;
-	 font-weight: bold;
-	 text-decoration-line: underline;}
   
   #ul { font-size: 15px;
        font-weight: bold;
+       color: white;
        margin-left: 15px;
        list-style-type: ">> "; }
   
   a { color: #89CFF0;
       font-style: bold;
-      font-size: 17px;
+      font-size: 18px;
       text-decoration: none;}
   
   h1 { margin-left: 300px;
@@ -75,59 +70,34 @@
        border-bottom-style: solid;
        border-color: #ffffff;
        font-size: 21px;}
-
-  td {
-      font-size: 21px;
-      border-collapse: collapse;
-      text-align: center;
-      height: 40px;
-  }
-
-
-  th {
-      font-size: 19px;
-      text-align: center;
-      border-bottom: 3px solid;
-      margin: 0 auto; }
-
-
-  table {
-      width: 97.8%;
-      margin-left: 10px;
-      margin-right: 10px;}
   
-
   #links {margin-left: 10px;}
 
   #newsdiv {
       margin-left: 10px;
       margin-right: 5px;
-      margin-bottom: 20px;
-}
+      margin-bottom: 20px;}
 
 
   #redsearch {
       margin-left: 3px;
       margin-bottom: 20px;
-      float: left;
-}
-
+      float: left;}
 
   #Techbutton {
-      padding: 8px 16px;
+      padding: 4px 8px;
       font-size: 15px;
       border-color: black;
       border: 3px solid;
-      border-radius: 20px;}
+      border-radius: 15px;}
 
   #reloadbutton {
-  padding: 8px 16px;
+  padding: 4px 8px;
   font-size: 15px;
   background-color: #ff6347;
   border: 2px solid;
   border-color: black;
-  border-radius: 20px;
-}
+  border-radius: 15px;}
 
   #scrollmenu {
       display: inline-block;
@@ -143,3 +113,30 @@
       text-align: center; 
       font-style: bold;
       font-size: 20px;}
+
+  #refresh_weather {
+  margin-left: 160px;
+  margin-top: -10px;
+  padding: 4px 8px;
+  font-size: 15px;
+  background-color: #ff6347;
+  border: 2px solid;
+  border-color: black;
+  border-radius: 15px;}
+
+  #linkcontainer {
+      text-align: center;
+      margin-bottom: 220px;
+      margin-left: 25px;
+      margin-top: -15px;}
+
+  #general, #work, #practice {
+      display:inline;
+      float: left; 
+      margin-left: 90px;}
+
+  #linktext {
+      font-stlye: bold;
+      margin-left: 35px;
+      font-size: 20px; 
+      border-bottom: 3px solid;}
