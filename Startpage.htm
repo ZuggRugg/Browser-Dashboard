@@ -11,9 +11,7 @@
 <body>
 <div id="innerpage"> 
 
-
 <h1>[browser-dashboard]</h1>
-
 <div id='TIME'>
 <p></p>
 </div>
@@ -23,6 +21,7 @@
 <div id="bar">
 <input type="text" placeholder="Enter Location..." id="link_id">
 <input type="button" id="link_str" value="Search" onClick="SearchBox()">
+<input type="button" id="refresh_weather" value="refresh" onClick="fetchData(97, 78)"
 </br> 
 </div>
 
@@ -44,38 +43,41 @@
   </div>
   
  <h3>Links</h3>
- <table id="link-table">
-  <tr>
-    <th>General</th>
-    <th>Work</th>
-    <th>Practice</th>
-  </tr>
-  <tr>
-    <td> <a href="https://www.youtube.com/feed/subscriptions" target="_blank">Youtube</a></td>
-    <td><a href="https://mail.google.com/mail" target="_blank">Email</a></td>
-   <td> <a href="https://arithmetic.zetamac.com/" target="_blank">Math</a></td>
-  </tr>
-  <tr>
-    <td><a href="https://news.ycombinator.com/" target="_blank">Hacker News </a></td>
-    <td><a href="https://pomofocus.io/" target="_blank">Timer</a></td>
-    <td> <a href="https://play.typeracer.com/" target="_blank">Typing</a></td>
-  </tr>
-  <tr>
-  <td><a href="https://old.reddit.com/" target="_blank">Reddit</a></td>
-  <td> <a href="https://github.com/login" target="_blank">Github</a></td>
-  <td> <a href="https://leetcode.com/problemset/" target="_blank">Leetcode</a></td>
-</tr>
-</table> 
- 
- <h4>News </h4>
 
+<div id="linkcontainer">
+ <div id="general">
+<p id="linktext">_general_</p>
+<ul><a href="https://www.youtube.com/feed/subscriptions" target="_blank">Youtube</a></ul>
+<ul><a href="https://news.ycombinator.com/" target="_blank">Hacker News </a></ul>
+<ul>  <a href="https://old.reddit.com/" target="_blank">Reddit</a></ul>
+</div>
+
+<div id="work">
+<p id="linktext">work</p>
+<ul><a href="https://mail.google.com/mail" target="_blank">Email</a></ul>
+<ul><a href="https://github.com/login" target="_blank">Github</a></ul>
+<ul><a href="https://pomofocus.io/" target="_blank">Timer</a></ul>
+</div>
+
+<div id="practice">
+<p id="linktext">_practice_</p>
+<ul><a href="https://arithmetic.zetamac.com/" target="_blank">Math</a></ul>
+<ul><a href="https://play.typeracer.com/" target="_blank">Typing</a></ul>
+<ul><a href="https://leetcode.com/problemset/" target="_blank">Leetcode</a></ul>
+</div>
+
+</div>
+
+
+ <h4>News </h4>
 <div id='newsdiv'>
 <p>Enter name of Subreddit:</p>
  <input type="text" placeholder="Subreddit Name..." id="redsearch">
  <input type="button" id="link_str" value="Search" onClick="getlinks()">
   </br> </br> </br>
- <input type="button" id="Techbutton" value="Tech News" onClick="getlinks()">
- <input type="button" id="reloadbutton" value="Reset" onClick="reloadbutton()">
+ <input type="button" id="Techbutton" value="General News" onClick="reloadbutton(); getlinks('news');">
+ <input type="button" id="Techbutton" value="Tech News" onClick="reloadbutton(); getlinks('Tech');">
+ <input type="button" id="reloadbutton" value="Clear-Screen" onClick="reloadbutton()">
 
 <div id="links">
 </div>
@@ -85,3 +87,5 @@
 </body>
 <script src="startpage.js"></script> 
 <html>
+
+
