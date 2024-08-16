@@ -10,6 +10,6 @@ fork and download the repository. you can run the entire program by clicking and
 
 Preview Image:
 ---------------
-![image](https://github.com/user-attachments/assets/9846d8bb-bcbb-43ab-bfaa-a02d68d93103)
+![image](https://github.com/user-attachments/assets/9cfe0e95-e7a0-4be7-88c2-2228dfa49760)
 
 
